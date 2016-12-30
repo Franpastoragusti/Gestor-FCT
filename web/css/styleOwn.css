@@ -1,0 +1,90 @@
+/*
+Gamas de color
+  #5E2750 :morado
+  #AEA79F :gris
+  #333333 :gris oscuro
+  #E95420 :naranja
+  #FFFFFF :blanco
+
+*/
+
+body{
+  background-color: #F4F4F4;
+  font-family: 'Ubuntu', sans-serif;
+  color: #33737;
+}
+
+button{
+  display: flex;
+}
+div.navbar-header{
+  padding-bottom: 15px;
+}
+a.navbar-brand p{
+  text-transform: none;
+}
+ul.nav.menu{
+  padding-top: 10px;
+}
+ul.nav.menu li.tittle{
+  padding-left: 10px;
+}
+
+input.form-control{
+  width: 100%;
+}
+
+input.form-control.searcher{
+  width: 30em;
+}
+
+.formButton{
+  width: 400px;
+}
+
+div#new-empresa > form > div:nth-child(7){
+  text-align: center;
+}
+div#new-empresa > form > div:nth-child(8){
+ text-align: center;
+}
+div#new-profesores > form > div:nth-child(4){
+  text-align: center;
+}
+div#new-profesores > form > div:nth-child(5){
+ text-align: center;
+}
+div#registration > form > div:nth-child(5){
+  text-align: center;
+}
+div#registration > form > div:nth-child(6){
+ text-align: center;
+}
+#profesores_Borrar,
+#profesores_Guardar,
+#empresas_Borrar,
+#empresas_Guardar,
+#user_Borrar,
+#user_Guardar{
+  width: 100%;
+  max-width: 400px;
+}
+body > nav{
+  padding-bottom: 0px;
+}
+button.btn-default.btn{
+  background-color: #D8A85F;
+}
+thead th.thNaranja{
+  background-color: #DDB77E !important;
+}
+.panel-heading{
+  color: #D8993A !important;
+  font-size: 30px;
+}
+body{
+  background-color: #919BA3;
+}
+.panel.panel-default{
+  margin-top: 20px;
+}

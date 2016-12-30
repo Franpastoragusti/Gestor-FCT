@@ -1,0 +1,36 @@
+{% extends '::default/adminPanel.html.twig' %}
+
+{% block body %}
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">Listado de Profesores</div>
+          <div class="panel-body">
+            <table data-toggle="table" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                <thead>
+                <tr>
+                    <th data-field="id" data-sortable="true">ID</th>
+                    <th data-field="nombre" data-sortable="true">NOMBRE</th>
+                    <th data-field="apellidos"  data-sortable="true">APELLIDOS</th>
+                    <th data-field="departamento" data-sortable="true">DEPARTAMENTO</th>
+                </tr>
+                </thead>
+                <tbody>
+                  {% for Profesor in Profesores %}
+                  <tr>
+                    <td class="col-xs-1">{{ Profesor.id }}</td>
+                    <td class="col-xs-2">{{ Profesor.nombre }}</td>
+                    <td class="col-xs-2">{{ Profesor.apellidos }}</td>
+                    <td class="col-xs-2">{{ Profesor.departamento }}</td>
+                  </tr>
+                  {% endfor %}
+                 </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div><!--/.row-->
+
+
+
+{% endblock %}

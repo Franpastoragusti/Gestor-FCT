@@ -1,0 +1,44 @@
+empresas_homepage:
+    path:     /
+    defaults: { _controller: FCTBundle:Default:index }
+
+all_empresas:
+    path:     /empresas/all
+    defaults: { _controller: FCTBundle:Empresas:all }
+
+all_alumnos:
+    path:     /alumnos/all
+    defaults: { _controller: FCTBundle:Alumnos:all }
+##Ruta para devolver la tabla de profesores
+all_profesores:
+    path:     /profesores/all
+    defaults: { _controller: FCTBundle:Profesores:all }
+
+new_empresas:
+    path:     /empresas/new
+    defaults: { _controller: FCTBundle:Empresas:new }
+##Ruta de formulario para generar un nuevo profesor
+new_profesor:
+    path:     /profesores/new
+    defaults: { _controller: FCTBundle:Profesores:new }
+
+api_get_empresas:
+    path:     /api/empresas
+    defaults: { _controller: FCTBundle:Api:showEmpresas}
+    methods:  [GET]
+##Ruta para Api que devuelve JSON con profesores
+api_get_profesores:
+    path:     /api/profesores
+    defaults: { _controller: FCTBundle:Api:showProfesores}
+    methods:  [GET]
+
+api_post_empresas:
+    path:     /api/empresas
+    defaults: { _controller: FCTBundle:Api:insertEmpresa}
+    methods:  [POST]
+
+
+
+user_registration:
+    path:     /register
+    defaults: { _controller: FCTBundle:User:register}
