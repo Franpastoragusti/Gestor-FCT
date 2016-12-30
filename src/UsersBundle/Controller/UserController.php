@@ -14,11 +14,10 @@ use UsersBundle\Form\UserType;
 class UserController extends Controller
 {
 
-  public function indexAction()
+  public function usersAction()
   {
-      return $this->render('UsersBundle:Default:index.html.twig');
+      return $this->render('UsersBundle:Users:logout.html.twig');
   }
-
 
   public function registerAction(Request $request)
    {
@@ -51,4 +50,24 @@ class UserController extends Controller
            array('form' => $form->createView())
        );
    }
+
+
+    public function loginAction()
+      {
+         $authenticationUtils = $this->get('security.authentication_utils');
+
+         // get the login error if there is one
+         $error = $authenticationUtils->getLastAuthenticationError();
+
+         // last username entered by the user
+         $lastUsername = $authenticationUtils->getLastUsername();
+
+         return $this->render('UsersBundle:Users:login.html.twig', array(
+             'last_username' => $lastUsername,
+             'error'         => $error,
+         ));
+       }
+
+
+
 }

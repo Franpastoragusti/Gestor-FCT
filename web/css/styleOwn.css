@@ -60,15 +60,31 @@ div#registration > form > div:nth-child(5){
 div#registration > form > div:nth-child(6){
  text-align: center;
 }
+div#login > form > div:nth-child(3){
+ text-align: center;
+}
+
+div.login-panel p {
+  padding-top: 10px;
+  text-align: center;
+}
+
+
 #profesores_Borrar,
 #profesores_Guardar,
 #empresas_Borrar,
 #empresas_Guardar,
 #user_Borrar,
-#user_Guardar{
+#user_Guardar,
+#usuario_Acceder{
   width: 100%;
   max-width: 400px;
 }
+
+.panel-heading{
+  text-align: center;
+}
+
 body > nav{
   padding-bottom: 0px;
 }

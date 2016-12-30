@@ -26,8 +26,17 @@ security:
             http_basic: ~
 
         users:
-            pattern: ^/users
+            pattern: ^/*
             anonymous: ~
+            provider: in_memory
+            form_login:
+                login_path: /users/login
+                check_path: /users/login
+                default_target_path: /
+            logout:
+                path: /users/logout
+                target: /
+
 
         main:
             anonymous: ~
@@ -38,3 +47,7 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        - { path: ^/users/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/users/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_ADMIN }

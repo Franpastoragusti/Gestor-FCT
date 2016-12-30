@@ -13,3 +13,6 @@ fct:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+logout:
+    path: /users/logout
