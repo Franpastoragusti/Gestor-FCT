@@ -47,6 +47,10 @@ security:
         users:
             pattern: ^/*
             anonymous: ~
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 604800
+                path: /
             provider: chain_provider
             form_login:
                 login_path: /users/login

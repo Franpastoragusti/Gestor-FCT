@@ -60,7 +60,7 @@ div#registration > form > div:nth-child(5){
 div#registration > form > div:nth-child(6){
  text-align: center;
 }
-div#login > form > div:nth-child(3){
+div#login > form > div:nth-child(3), div#login > form > div:nth-child(4){
  text-align: center;
 }
 
@@ -68,7 +68,9 @@ div.login-panel p {
   padding-top: 10px;
   text-align: center;
 }
-
+div.form-group:nth-child(3) > label:nth-child(2){
+  text-decoration: none;
+}
 
 #profesores_Borrar,
 #profesores_Guardar,
