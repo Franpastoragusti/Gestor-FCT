@@ -36,9 +36,3 @@ api_post_empresas:
     path:     /api/empresas
     defaults: { _controller: FCTBundle:Api:insertEmpresa}
     methods:  [POST]
-
-
-
-user_registration:
-    path:     /register
-    defaults: { _controller: FCTBundle:User:register}

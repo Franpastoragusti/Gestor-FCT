@@ -1,6 +1,6 @@
 <?php
 
-namespace FCTBundle\Repository;
+namespace UsersBundle\Repository;
 
 /**
  * UserRepository

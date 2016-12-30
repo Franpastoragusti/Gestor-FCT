@@ -1,6 +1,6 @@
 <?php
 
-namespace FCTBundle\Controller;
+namespace UsersBundle\Controller;
 
 
 
@@ -8,11 +8,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use FCTBundle\Entity\User;
-use FCTBundle\Form\UserType;
+use UsersBundle\Entity\User;
+use UsersBundle\Form\UserType;
 
 class UserController extends Controller
 {
+
+  public function indexAction()
+  {
+      return $this->render('UsersBundle:Default:index.html.twig');
+  }
+
+
   public function registerAction(Request $request)
    {
        // 1) build the form
@@ -40,7 +47,7 @@ class UserController extends Controller
        }
 
        return $this->render(
-           'FCTBundle:Users:registration.html.twig',
+           'UsersBundle:Users:registration.html.twig',
            array('form' => $form->createView())
        );
    }

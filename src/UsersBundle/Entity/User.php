@@ -1,6 +1,6 @@
 <?php
 
-namespace FCTBundle\Entity;
+namespace UsersBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="FCTBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="UsersBundle\Repository\UserRepository")
  */
 class User implements UserInterface
 {
