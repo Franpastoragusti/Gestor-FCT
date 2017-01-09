@@ -28,27 +28,57 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 32,
+     *      minMessage = "El campo nombre de usuario debe tener como mínimo {{ limit }} carácteres",
+     *      maxMessage = "El campo nombre de usuario debe tener como máximo {{ limit }} carácteres"
+     * )
      */
     private $username;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email(
+     *     message = "El email '{{ value }}' no tiene el formato de email correcto.",
+     *     checkMX = true
+     * )
      */
     private $email;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="password", type="string", length=64)
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern="/[A-Za-z0-9]/",
+     *     match=false,
+     *     message="Tu contraseña debe contener al menos una mayúscula y un número además de minúsculas"
+     * )
+     * @Assert\Length(
+     *      min = 8,
+     *      minMessage = "El campo contraseña debe tener como mínimo {{ limit }} carácteres"
+     * )
      */
     private $password;
 
     /**
-         * @Assert\NotBlank()
-         * @Assert\Length(max=4096)
-         */
+    * @Assert\NotBlank()
+    * @Assert\Regex(
+    *     pattern="/[A-Za-z0-9]/",
+    *     match=false,
+    *     message="Tu contraseña debe contener al menos una mayúscula y un número además de minúsculas"
+    * )
+    * @Assert\Length(
+    *      min = 8,
+    *      minMessage = "El campo contraseña debe tener como mínimo {{ limit }} carácteres"
+    * )
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
     private $plainPassword;
 
     /**
