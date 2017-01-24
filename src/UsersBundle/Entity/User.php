@@ -52,24 +52,14 @@ class User implements UserInterface
     /**
      * @var string
      * @ORM\Column(name="password", type="string", length=64)
-     * @Assert\NotBlank()
-     * @Assert\Regex(
-     *     pattern="/[A-Za-z0-9]/",
-     *     match=false,
-     *     message="Tu contraseña debe contener al menos una mayúscula y un número además de minúsculas"
-     * )
-     * @Assert\Length(
-     *      min = 8,
-     *      minMessage = "El campo contraseña debe tener como mínimo {{ limit }} carácteres"
-     * )
+     *
      */
     private $password;
 
     /**
     * @Assert\NotBlank()
     * @Assert\Regex(
-    *     pattern="/[A-Za-z0-9]/",
-    *     match=false,
+    *     pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/",
     *     message="Tu contraseña debe contener al menos una mayúscula y un número además de minúsculas"
     * )
     * @Assert\Length(
@@ -101,7 +91,6 @@ class User implements UserInterface
     public function setUsername($username)
     {
         $this->username = $username;
-
         return $this;
     }
 
