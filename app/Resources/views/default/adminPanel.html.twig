@@ -120,6 +120,7 @@
               </li>
             </ul>
           </li>
+          {% if is_granted('ROLE_ADMIN') %}
           <li role="presentation" class="divider"></li>
           <li class="tittle">CONFIGURACIÓN</li>
           <li class="parent">
@@ -144,6 +145,7 @@
               </li>
             </ul>
           </li>
+          {% endif %}
           <li role="presentation" class="divider"></li>
           <li class="tittle">RECURSOS</li>
           <li><a href="panels.html"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Recursos</a></li>

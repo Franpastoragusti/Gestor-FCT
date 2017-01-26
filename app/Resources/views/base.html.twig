@@ -122,30 +122,33 @@
                   </li>
                 </ul>
               </li>
-              <li role="presentation" class="divider"></li>
-              <li class="tittle">CONFIGURACIÓN</li>
-              <li class="parent">
-                <a href="#">
-                  <span data-toggle="collapse" href="#sub-item-4"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"/></svg></span> Configurar
-                </a>
-                <ul class="children collapse" id="sub-item-4">
-                  <li>
-                    <a class="" href="#">
-                      <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 1
+              <li role="presentation" class="divider"></li>ç
+              {% if is_granted('ROLE_ADMIN') %}
+                <li class="tittle">CONFIGURACIÓN</li>
+                <li class="parent">
+
+                    <a href="/admin">
+                      <span data-toggle="collapse" href="#sub-item-4"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"/></svg></span> Configurar
                     </a>
+                    <ul class="children collapse" id="sub-item-4">
+                      <li>
+                        <a class="" href="#">
+                          <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 1
+                        </a>
+                      </li>
+                      <li>
+                        <a class="" href="#">
+                          <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 2
+                        </a>
+                      </li>
+                      <li>
+                        <a class="" href="#">
+                          <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
+                        </a>
+                      </li>
+                    </ul>
                   </li>
-                  <li>
-                    <a class="" href="#">
-                      <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 2
-                    </a>
-                  </li>
-                  <li>
-                    <a class="" href="#">
-                      <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
-                    </a>
-                  </li>
-                </ul>
-              </li>
+              {% endif %}
               <li role="presentation" class="divider"></li>
               <li class="tittle">RECURSOS</li>
               <li><a href="panels.html"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Recursos</a></li>
@@ -163,7 +166,7 @@
 
       </div>	<!--/.main-->
 
-      
+
       {% block javascripts %}{% endblock %}
     	<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
     	<script src="{{ asset('js/bootstrap.min.js') }}"></script>

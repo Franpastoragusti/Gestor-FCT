@@ -5,7 +5,7 @@ namespace UsersBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * User
@@ -31,19 +31,20 @@ class User implements UserInterface
      * @Assert\NotBlank()
      * @Assert\Length(
      *      min = 4,
-     *      max = 32,
-     *      minMessage = "El campo nombre de usuario debe tener como mínimo {{ limit }} carácteres",
-     *      maxMessage = "El campo nombre de usuario debe tener como máximo {{ limit }} carácteres"
+     *      max = 16,
+     *      minMessage = "El usuario debe tener un mínimo de 4 letras",
+     *      maxMessage = "El usuario debe tener un máximo de 16 letras"
      * )
      */
     private $username;
 
     /**
      * @var string
+     *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      * @Assert\NotBlank()
      * @Assert\Email(
-     *     message = "El email '{{ value }}' no tiene el formato de email correcto.",
+     *     message = "El email introducido no es válido",
      *     checkMX = true
      * )
      */
@@ -51,26 +52,24 @@ class User implements UserInterface
 
     /**
      * @var string
-     * @ORM\Column(name="password", type="string", length=64)
      *
+     * @ORM\Column(name="password", type="string", length=64)
      */
+
     private $password;
 
     /**
-    * @Assert\NotBlank()
-    * @Assert\Regex(
-    *     pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/",
-    *     message="Tu contraseña debe contener al menos una mayúscula y un número además de minúsculas"
-    * )
-    * @Assert\Length(
-    *      min = 8,
-    *      minMessage = "El campo contraseña debe tener como mínimo {{ limit }} carácteres"
-    * )
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
+     * @Assert\Regex(
+     *     pattern = "/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/",
+     *     message = "La contraseña debe tener 1 letra mayuscula, letra y numeros, y debe contener mas de 8 caracteres"
+     * )
      */
     private $plainPassword;
-
+    /**
+     *
+     * @ORM\Column(name="roles", type="json_array")
+     */
+    private $roles = array();
     /**
      * Get id
      *
@@ -80,7 +79,14 @@ class User implements UserInterface
     {
         return $this->id;
     }
-
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
     /**
      * Set username
      *
@@ -151,19 +157,7 @@ class User implements UserInterface
     {
         return $this->password;
     }
-
-
-    public function getPlainPassword()
-    {
-        return $this->plainPassword;
-    }
-
-    public function setPlainPassword($password)
-    {
-        $this->plainPassword = $password;
-    }
-
-
+    //Metodos que se deben implementar para usar el user interface
     public function getSalt()
     {
         // The bcrypt algorithm doesn't require a separate salt.
@@ -171,9 +165,22 @@ class User implements UserInterface
         return null;
     }
 
-    public function getRoles()
+    /**
+     * Set roles
+     *
+     * @param string $roles
+     *
+     * @return User
+     */
+
+    public function setRoles(array $roles)
     {
-      return array('ROLE_USER');
+        $this->roles = $roles;
+        return $this;
+    }
+
+    public function getRoles() {
+      return $this->roles;
     }
 
     public function eraseCredentials(){}
