@@ -40,3 +40,7 @@ api_post_empresas:
 conf:
   path:     /conf
   defaults: { _controller: FCTBundle:Configuracion:all }
+
+conf_new:
+  path:     /conf/new
+  defaults: { _controller: FCTBundle:Configuracion:new }

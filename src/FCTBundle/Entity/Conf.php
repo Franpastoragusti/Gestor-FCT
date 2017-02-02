@@ -3,6 +3,7 @@
 namespace FCTBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Conf
@@ -25,6 +26,7 @@ class Conf
      * @var string
      *
      * @ORM\Column(name="param", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $param;
 
@@ -32,6 +34,7 @@ class Conf
      * @var string
      *
      * @ORM\Column(name="configuracion", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $configuracion;
 
@@ -94,4 +97,3 @@ class Conf
         return $this->configuracion;
     }
 }
-

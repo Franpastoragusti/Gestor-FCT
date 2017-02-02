@@ -17,7 +17,7 @@
 
     </head>
     <body>
-      {% block nav   %}
+      {% block nav %}
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -120,7 +120,8 @@
               </li>
             </ul>
           </li>
-          {% if is_granted('ROLE_ADMIN') %}
+          {#decidimos si tiene el rol Super admin y si si mostramos los enlaces#}
+          {% if is_granted('ROLE_SUPER_ADMIN') %}
           <li role="presentation" class="divider"></li>
           <li class="tittle">CONFIGURACIÓN</li>
           <li class="parent">
@@ -129,18 +130,13 @@
             </a>
             <ul class="children collapse" id="sub-item-4">
               <li>
-                <a class="" href="#">
-                  <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 1
+                <a class="" href="/conf">
+                  <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Configuraciones
                 </a>
               </li>
               <li>
-                <a class="" href="#">
-                  <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 2
-                </a>
-              </li>
-              <li>
-                <a class="" href="#">
-                  <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
+                <a class="" href="/conf/new">
+                  <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Nueva Configuració
                 </a>
               </li>
             </ul>
